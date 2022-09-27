@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>mole</title>
+	<style type="text/css">
+		body{margin: 0;background: skyblue;}
+		#grass{margin-top: 20vh; background-size: cover; width: 100vw; height: 80vh;
+			background: url(bg.png);background-size: 100px;position: absolute;}
+		h1{padding: 5px; font-size: 30px; border-radius: 15px; border: 2px solid black; position: absolute; transform: transLate(-50%,-50%); font-weight: bold; width: 130px; text-align: center;background: none;
+		    left: 50vw; top:  7vH;}
+	    h1:hover{background-color: black; color: white;}
+
+		img{width: 100px; height: 100px; position: absolute;}
+		
+		h2{font-size: 20px; color: black; margin: 0; top: 10px;}
+		.time{margin-left: 20px;position: absolute;}
+		.ScorePoint{margin-left: 20px;position: absolute;}
+	</style>
+</head>
+<body>
+	<div id="grass"></div>
+	<h1 id="startButton"> START!! </h1>
+	<h2 id ="ScorePoint">score : 0</h2>
+	<h2 id ="time">time:00</h2>
+
+	<script type="text/javascript">
+
+		    
+	startButton.onclick = function main(){
+			var button = document.getElementById("startButton")
+			button.parentNode.removeChild(button);
+
+	          var myTimer=setInterval(myTime,1000);
+	          var sec =0;
+
+			  function myTime(){
+				var time = new Date();
+				var t = time.getSeconds();
+				/*document.body.innerHTML = t;*/
+				sec=sec+1;
+				if(sec==15){
+					alert("sNum");
+					clearInterval(myTimer);
+					main();
+					document.body.appendChild(button);
+				}
+			  }
+		    /*var myScore = document.getElementById("ScorePoint");
+			   let myScore=0;
+			  function myS(){
+				var myScore = myScore+10;
+				return myScore;
+				ScorePoint.innerHTML = "Score : "+myScore;
+				
+			  }*/
+	
+			makeBox();
+
+		    function makeBox(){
+			   var a = document.createElement("img");
+		       a.src="mole1.png";
+		       a.id = "mole1Img";
+		       a.className = "mole1Box";
+
+		/*var panelRW = parselnt($("#grass").css("width"))-parselnt($("img").css("width"));
+		var panelRH = parselnt($("#grass").css("height"))-parselnt($("img").css("height"));*/
+
+		       var b = Math.random()*window.innerWidth;
+		       var c = Math.random()*window.innerHeight*0.8;
+		       a.style.left = b +"px";
+		       a.style.top = c +"px";
+
+	    	
+
+		       a.onclick = function click(){
+			       a.parentNode.removeChild(a);
+			       /*function action(){
+			       	var.sNum =document.getElementById("sNum");
+		       			sNum = sNum+10;
+		       		return sNum;
+		       	     };
+		       	     action(); */
+		       	 
+			       makeBox();
+		        }
+		       grass.appendChild(a);
+		    }
+	}
+		
+		
+	</script>
+	
+</body>
+</html>
